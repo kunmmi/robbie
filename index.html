@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robbie</title>
+    <link rel="icon" type="image/x-icon" href="/poik.png">
+
+</head>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #FE9000, rgb(187, 123, 4)), url('https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg') no-repeat center center/cover;
+        color: white;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2em;
+        text-align: left;
+    }
+
+    header p {
+        margin: 0;
+        font-size: 1.2em;
+    }
+
+    nav {
+        display: flex;
+        gap: 15px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-bottom: 2px solid transparent;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        border-bottom: 2px solid white;
+    }
+
+    .menu-toggle {
+        display: none;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: flex;
+    }
+
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: 60px;
+            right: 0px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            z-index: 1000;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+        .nav-links.show {
+            display: flex;
+        }
+    }
+
+    .hero-image {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .hero-image img {
+        max-width: 100px;
+        height: auto;
+        border-radius: 50%;
+        border: 5px solid gold;
+        box-shadow: darkgoldenrod;
+    }
+
+    .hero-image h2 {
+        margin-top: 10px;
+        font-size: 1.5em;
+    }
+
+    section {
+        padding: 20px;
+        text-align: center;
+    }
+
+    section h2 {
+        margin-bottom: 15px;
+    }
+
+    ol {
+        text-align: left;
+        max-width: 800px;
+        margin: 0 auto 20px;
+        padding-left: 20px;
+    }
+
+    footer {
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        text-align: center;
+    }
+
+    footer a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    section {
+        padding: 20px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.6);
+        /* Semi-transparent black */
+        margin: 20px;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .content-box {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px auto;
+        max-width: 800px;
+        color: white;
+    }
+
+    .embed {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px auto;
+        max-width: 80%;
+        color: white;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .container img {
+        max-width: 40%;
+        /* Image takes up 40% of the container width */
+        height: auto;
+        border-radius: 10px;
+        /* Optional: Rounded corners for the image */
+    }
+
+    .container .text {
+        flex: 1;
+        /* Text takes up remaining space */
+        font-size: 1.2em;
+        line-height: 1.6;
+        color: white;
+        /* Change to white if needed for contrast */
+    }
+
+    /* Responsive: Stack image and text vertically on small screens */
+
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            text-align: center;
+            /* Center-align text on smaller screens */
+        }
+        .container img {
+            max-width: 100%;
+            /* Make the image smaller on small screens */
+            margin-bottom: 15px;
+            height: auto;
+        }
+    }
+
+    .artistic-text {
+        font-family: 'Bebas Neue', sans-serif;
+        /* Replace with your chosen font */
+        font-size: 3em;
+        /* Adjust size as needed */
+        font-weight: bold;
+        color: rgba(255, 255, 255, 0.8);
+        /* Semi-transparent white */
+        text-transform: uppercase;
+        /* Optional for all caps */
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        /* Optional shadow for depth */
+        -webkit-text-stroke: 2px rgba(0, 0, 0, 0.7);
+        /* Bold outline effect */
+    }
+
+    /* Optional: Transparent gradient effect */
+
+    .gradient-text {
+        font-family: 'Poppins', sans-serif;
+        font-size: 4em;
+        font-weight: bold;
+        background: linear-gradient(90deg, rgba(255, 0, 0, 0.8), rgba(0, 0, 255, 0.8));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: none;
+        /* Remove shadows for a cleaner gradient look */
+    }
+
+    .address-box {
+        background: yellow;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        color: black;
+    }
+
+    .copy-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        color: black;
+        background: yellow;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .copy-btn:hover {
+        background: yellow;
+    }
+
+    .heartbeat-img {
+        width: 150px;
+        height: 150px;
+        animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+        0% {
+            transform: scale(1);
+        }
+        30% {
+            transform: scale(1.2);
+        }
+        50% {
+            transform: scale(1);
+        }
+        70% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .div-carousel {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-images {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-images img {
+        width: 100%;
+        border: none;
+    }
+
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+    }
+
+    .carousel-button.left {
+        left: 10px;
+    }
+
+    .carousel-button.right {
+        right: 10px;
+    }
+
+    .carousel-button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    marquee {
+        font-size: 1.2em;
+        font-weight: bold;
+        background: #222;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .content-box ul {
+        list-style: none;
+    }
+</style>
+<script>
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('show');
+    }
+</script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>Robbie</h1>
+            <p>The Rise of a New Era</p>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav class="nav-links">
+            <a href="/meme.html">Meme</a>
+            <a href="#tokenomics">contract Address</a>
+            <a href="#how-to-buy">Tokenomics</a>
+            <a href="#pancakeswap">Buy on PancakeSwap</a>
+            <a href="#community">Community</a>
+            <a href="/www.mellowmanbsc.com/whitePaper.html">White Paper</a>
+        </nav>
+    </header>
+
+    <h1></h1>
+    <marquee id="crypto-prices" behavior="scroll" direction="left">
+        Loading prices...
+    </marquee>
+
+
+    <div class="hero-image">
+        <img src="./poik.png" alt="Heartbeat Effect Image" class="heartbeat-img">
+
+    </div>
+
+    <!--
+    <section id="about">
+        <h2>About</h2>
+       
+        <p>$TRUMP47 is more than just a cryptocurrency—it's a movement. Inspired by the resilience, 
+            determination, and vision of the 47th President, $TRUMP47 symbolizes strength, revival, 
+            and the pursuit of greatness. Built on cutting-edge blockchain technology, this token is
+             designed for patriots and believers in a brighter future. Join the revolution, embrace 
+             the mission, and make history with $TRUMP47! 🚀
+        </p>
+    </section>
+-->
+    <h2 class="artistic-text" style="text-align: center;">ABOUT</h2>
+    <div class="container">
+        <img src="./img/3rd.jpg" alt="Sample Image">
+        <div class="text" style="color: black;">
+
+            <p>
+                Robbie ($Robbie) is a revolutionary cryptocurrency launched on the Binance Smart Chain (BSC) that aims to create a seamless, decentralized financial experience. With a focus on security, transparency, and accessibility, Robbie offers a unique
+                platform for users to invest and interact with digital assets in a more user-friendly way.
+            </p>
+
+            <p>
+                Our mission is to make cryptocurrency accessible to everyone, regardless of experience. By harnessing the power of BSC, Robbie ensures fast, low-cost transactions while fostering a vibrant, supportive community. Join us on this exciting journey to
+                redefine the future of finance.
+            </p>
+
+        </div>
+    </div>
+
+    <section id="how-to-buy">
+        <div style="width:100%; height:90vh; display:flex; overflow-x: hidden;">
+            <iframe id="geckoterminal-embed" title="GeckoTerminal Embed" src="https://www.geckoterminal.com/bsc/pools/0XCF0C351A5C02FFDC59569B4D86A41A4E1BA2A379?embed=1&info=1&swaps=1&grayscale=0&light_chart=0&chart_type=price&resolution=15m" style="flex-grow:1; height:100%;"
+                frameborder="0" allow="clipboard-write" allowfullscreen>
+            </iframe>
+        </div>
+
+    </section>
+
+
+
+
+
+
+    <section id="tokenomics">
+        <div class="content-box">
+
+            <h1>Contract Address</h1>
+            <div class="address-box" id="contractAddress">0XCF0C351A5C02FFDC59569B4D86A41A4E1BA2A379</div>
+            <button class="copy-btn" onclick="copyToClipboard()">Copy Address</button>
+            <p id="copyMessage" style="color: green; margin-top: 10px; display: none;">Address copied to clipboard!</p>
+        </div>
+
+        <script>
+            function copyToClipboard() {
+                const address = document.getElementById('contractAddress').innerText;
+                navigator.clipboard.writeText(address).then(() => {
+                    const message = document.getElementById('copyMessage');
+                    message.style.display = 'block';
+                    setTimeout(() => {
+                        message.style.display = 'none';
+                    }, 2000);
+                });
+            }
+        </script>
+
+    </section>
+
+    <section id="how-to-buy">
+        <div class="content-box">
+            <h1>Tokenomics</h1>
+            <h2>Token Name: Robbie ($Robbie)</h2>
+            <h2> Network: Binance Smart Chain (BSC)</h2>
+            <h2>Total Supply: 100,000 Tokens</h2>
+            <h2>Initial Liquidity Pool: 1 BNB 🔒</h2>
+            <h2>Buy/Sell Tax: 7% / 7%</h2>
+            <h2>Contract Renounced: ✅ Yes</h2>
+            <h2>Liquidity Locked: ✅ Yes</h2>
+
+        </div>
+    </section>
+
+    <section id="how-to-buy">
+        <div class="content-box">
+            <h1>Roadmap</h1>
+            <h2>Phase 1 – Launch & Hype</h2>
+            <ul>
+                <li>✅ Token launch on BSC</li>
+                <li>✅ Liquidity locked & contract renounce</li>
+                <li>✅ Community building & Telegram growth</li>
+                <li>✅ Early marketing push (Twitter, influencers)</li>
+                <li>✅ Organic social media growth & shilling</li>
+            </ul>
+            <h2>Phase 2 – Expansion & Adoption</h2>
+            <ul>
+                <li>🔹 DEX Listing/Trending & Strategic Partnerships</li>
+                <li>🔹 Listings on CoinGecko & CoinMarketCapm</li>
+                <li>🔹 Meme contests, giveaways, and viral challenges</li>
+            </ul>
+            <h2>Phase 3 – Moon Mission</h2>
+            <ul>
+                <li>🚀 Hitting our first $1 per token target</li>
+                <li>🚀 $Robbie taking over the meme world!</li>
+                <li>🚀 Partnering with high-profile crypto influencers</li>
+                <li>🚀 Major Exchange Listings (CEX)</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <section id="pancakeswap">
+        <div class="content-box">
+            <h1>Here’s a step-by-step guide to buying $Robbie on PancakeSwap:</h1>
+            <h2>Step 1: Set Up Your Wallet</h2>
+            <p>Download a wallet like MetaMask or Trust Wallet if you don’t have one already. Add the Binance Smart Chain (BSC) network to your wallet. For MetaMask: Go to Settings → Networks → Add Network and input the BSC details.
+            </p>
+            <h2>Step 2: Fund Your Wallet with BNB</h2>
+            <p>Buy BNB (Binance Coin) from a trusted exchange (e.g., Binance). Send the BNB to your wallet address. Ensure you have a small amount of extra BNB for transaction fees.
+            </p>
+            <h2>Step 3: Go to PancakeSwap</h2>
+            <p>Open PancakeSwap in your browser or use the dApp browser in Trust Wallet. Connect your wallet to PancakeSwap by clicking "Connect Wallet" in the top-right corner.
+            </p>
+            <h2>Step 4: Import $Robbie Token</h2>
+            <p>Copy the contract address, on PancakeSwap, click "Select a Token" in the "Swap" section. Paste the $Robbie contract address and add the token.
+            </p>
+            <h2>Step 5: Adjust Settings</h2>
+            <p>Set the slippage tolerance to account for transaction tax (check the project details for the exact rate; 7–8% is common). Click the gear ⚙️ icon to adjust slippage. Enter the amount of BNB you want to swap for $TRUMP47.
+            </p>
+            <h2>Step 6: Confirm the Swap</h2>
+            <p>Review the transaction details. Click "Swap" and confirm the transaction in your wallet.
+            </p>
+            <h2>Step 7: Add $Robbie to Your Wallet</h2>
+            <p>After the transaction is confirmed, manually add $Robbie to your wallet using the contract address. In MetaMask or Trust Wallet, go to "Import Tokens" and paste the contract address. You’re now a proud holder of $Robbie! 🚀</p>
+
+        </div>
+    </section>
+    <!--
+    <section id="community">
+      <div class="content-box">
+        <div  class="hero-image"><img src="./img/trump47.jpg" alt="potus"></div>
+        <h2>Community</h2>
+        <p>Join the movement and connect with patriots worldwide!</p>
+        <p>Contact: <a href="https://t.me/Trum47thPotus">TRUMP47 TEAM</a></p>
+    </div>
+    </section>
+-->
+    <section id="community">
+        <div class="content-box">
+            <!-- Video autoplay -->
+            <video autoplay muted loop width="100%">
+                <source src="./img/8th.jpg" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!--
+      <div class="hero-image">
+        <img src="./img/trump47.jpg" alt="potus">
+      </div>
+    -->
+            <h2>Community</h2>
+            <p>Join the movement and connect with crypto enthusiasts worldwide!</p>
+            <p>Contact: <a href="https://t.me/Mellow_Portal" style="color: yellow;">MELLOW TEAM</a></p>
+        </div>
+    </section>
+
+    <h2 class="artistic-text" style="text-align: center;">The Rise of a New Era</h2>
+    <div class="container">
+        <img src="./img/5th.jpg" alt="Sample Image">
+        <div class="text" style="color: black;">
+
+            <p>
+                Robbie ($Robbie) has weathered the ups and downs of the crypto market with steady resilience, proving that success comes from patience and adaptability. Built on Binance Smart Chain (BSC), $Robbie isn’t just another token—it’s a movement toward sustainable
+                growth and stability.
+            </p>
+
+            <p>
+                Despite market fluctuations and challenges, $Robbie remains strong, offering a reliable path forward for investors and believers alike. The future of crypto isn’t just about rapid gains—it’s about endurance, vision, and a community that stays the course.
+                With $Robbie, the journey toward financial success is just getting started.
+
+            </p>
+            <h2 style="color: rgba(255, 0, 0, 0.7);"><a href="https://t.me/Mellow_Portal"><b style="color: purple;">JOIN THE MOVEMENT</b></a>
+            </h2>
+        </div>
+    </div>
+
+    <section id="community">
+        <div class="content-box">
+            <div class="carousel">
+                <div class="carousel-images" id="carouselImages">
+                    <img src="./img/4th.jpg" alt="Image 1">
+                    <img src="./img/5th.jpg" alt="Image 2">
+                    <img src="./img/3rd.jpg" alt="Image 3">
+                    <img src="./img/7th.jpg" alt="Image 3">
+                    <img src="./img/6th.jpg" alt="Image 3">
+                    <img src="./poik.png" alt="Image 3">
+                    <img src="./img/1.jpg" alt="Image 3">
+                    <img src="./img/3.jpg" alt="Image 3">
+                    <img src="./img/4.jpg" alt="Image 3">
+                    <img src="./img/5.jpg" alt="Image 3">
+                    <img src="./img/6.jpg" alt="Image 3">
+                    <img src="./img/7.jpg" alt="Image 3">
+                    <img src="./img/second.jpg" alt="Image 3">
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+
+
+
+    <script>
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const carouselImages = document.getElementById('carouselImages');
+            const totalImages = carouselImages.children.length;
+            carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            const carouselImages = document.getElementById('carouselImages');
+            const totalImages = carouselImages.children.length;
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateCarousel();
+        }
+
+        setInterval(nextSlide, 3000); // Automatically change slides every 3 seconds
+
+        updateCarousel();
+    </script>
+
+
+
+    <script>
+        async function fetchCryptoPrices() {
+            const coins = 'bitcoin,ethereum,dogecoin,binancecoin,ripple,cardano,solana,polkadot,litecoin,tron';
+            const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${coins}&vs_currencies=usd`);
+            const data = await response.json();
+
+            const prices = [
+                `Bitcoin: $${data.bitcoin.usd}`,
+                `Ethereum: $${data.ethereum.usd}`,
+                `Dogecoin: $${data.dogecoin.usd}`,
+                `Binance Coin: $${data.binancecoin.usd}`,
+                `Ripple: $${data.ripple.usd}`,
+                `Cardano: $${data.cardano.usd}`,
+                `Solana: $${data.solana.usd}`,
+                `Polkadot: $${data.polkadot.usd}`,
+                `Litecoin: $${data.litecoin.usd}`,
+                `Tron: $${data.tron.usd}`
+            ];
+
+            document.getElementById('crypto-prices').textContent = prices.join(' | ');
+        }
+
+        // Fetch prices initially
+        fetchCryptoPrices();
+
+        // Update prices every 60 seconds
+        setInterval(fetchCryptoPrices, 60000);
+    </script>
+
+
+
+    <footer>
+        <div class="content-box">
+            <p>&copy; 2025 Robbie. All Rights Reserved.</p>
+            <a href="https://t.me/Mellow_Portal">Telegram</a>
+            <a href="https://x.com/bsc_on48743">Twitter</a>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBBIE - The Rise of a New Era</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, rgb(255, 255, 0), rgb(255, 165, 0)), url('https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg') no-repeat center center/cover;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            text-align: left;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 60px;
+                right: 0px;
+                padding: 10px;
+                border-radius: 5px;
+                text-align: center;
+                z-index: 1000;
+                width: 100%;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+        }
+
+        .hero-image {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .hero-image img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 50%;
+            border: 5px solid white;
+        }
+
+        .hero-image h2 {
+            margin-top: 10px;
+            font-size: 1.5em;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            margin: 20px;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-box {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+            color: white;
+        }
+
+        .address-box {
+            background: darkred;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        footer {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        marquee {
+            font-size: 1.2em;
+            font-weight: bold;
+            background: #222;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .heartbeat-img {
+            width: 150px;
+            height: 150px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        .content-box ul {
+            list-style: none;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(1.2);
+            }
+            50% {
+                transform: scale(1);
+            }
+            70% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>ROBBIE</h1>
+            <p>The Rise of a New Era</p>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="/Meme.html">Meme</a>
+        </nav>
+    </header>
+
+    <h1></h1>
+    <marquee id="crypto-prices" behavior="scroll" direction="left">
+        Loading prices...
+    </marquee>
+
+    <div class="hero-image">
+        <img src="../img/second.jpg" alt="Heartbeat Effect Image" class="heartbeat-img">
+
+    </div>
+
+
+    <section>
+        <h2>$ROBBIE WHITE PAPER</h2>
+        <div class="content-box">
+            <h1>$ROBBIE – The 1000X Gem on BSC</h1>
+            <h2>Introduction</h2>
+            <p>
+                Welcome to $ROBBIE, a revolutionary project at the intersection of art, community, and blockchain innovation on the Binance Smart Chain (BSC). Inspired by ROBBIE, a laid-back and charismatic character from Matt Furie, the legendary creator of Pepe,
+                $ROBBIE is not just a cryptocurrency—it's a cultural movement. With a low supply, a strong community, and a smart tokenomics model, $ROBBIE aims to become the next 1000X crypto sensation.
+
+            </p>
+            <h1>Tokenomics</h1>
+            <h2>Token Name: ROBBIE ($ROBBIE)</h2>
+            <h2> Network: Binance Smart Chain (BSC)</h2>
+            <h2>Total Supply: 100,000 Tokens</h2>
+            <h2>Initial Liquidity Pool: 1 BNB 🔒</h2>
+            <h2>Buy/Sell Tax: 7% / 7%</h2>
+            <h2>Contract Renounced: ✅ Yes</h2>
+            <h2>Liquidity Locked: ✅ Yes</h2>
+
+            <h1>Vision & Mission</h1>
+
+            <p>
+                At its core, $ROBBIE is designed to disrupt the meme token space by blending scarcity economics, strong branding, and a dedicated community. Our vision is to position $ROBBIE as the most sought-after low-supply token with real cultural and artistic relevance.
+
+            </p>
+            <p>
+                Our mission is simple: grow a sustainable, engaging, and high-value token ecosystem that rewards holders, fosters creativity, and attracts new users through strategic marketing and community incentives
+
+            </p>
+
+            <h1>The ROBBIE Story</h1>
+            <p>
+                ROBBIE is not just a meme; he is a symbol of financial freedom, relaxation, and strategic gains in the degen world. As a close friend of the Boys Club crew, ROBBIE is bringing a new wave of chill and wealth to the crypto space. This project embodies
+                the calm but powerful force of strategic investing, making it a must-have asset for serious traders and meme enthusiasts alike.
+
+            </p>
+            <h1>Why $ROBBIE?</h1>
+            <p>Low Supply, High Demand: With only 100,000 tokens, scarcity is built-in. 💎</p>
+            <p>Backed by an Iconic Creator’s Universe: Inspired by Matt Furie’s art legacy. 🎨</p>
+            <p>Renounced Contract & Locked Liquidity: Full security & decentralization. 🔒</p>
+            <p>1000X Potential with Smart Tokenomics: Engineered for massive growth. 🚀</p>
+            <p>Strong Community & Marketing Push: Engaged holders, continuous outreach. 🔥</p>
+            <p>A Unique Blend of Art, Culture, and Crypto: More than a token—it’s a movement. 🎭</p>
+
+            <h1>Tax Structure & Utility</h1>
+            <p>To ensure sustainability and growth, $ROBBIE implements a 7% buy and sell tax:</p>
+            <p>4% Marketing & Development: Fuels aggressive marketing, CEX listings, and brand expansion.</p>
+            <p>3% Liquidity Pool: Supports stable price action and protects holders from extreme volatility.</p>
+
+            <h1>Growth Strategy & Marketing</h1>
+            <p>$ROBBIE is built to moon, with a structured marketing and expansion plan to maximize exposure and adoption. Our multi-phase strategy includes:<br><br> ✅ Massive influencer partnerships 📢<br> ✅ DEX Trending Promotions 📊<br> ✅ Community-Driven
+                Shilling & Raid Campaigns 💬<br> ✅ Strategic Airdrops & Rewards for Holders 🎁<br> ✅ Targeting a $1 per Token Milestone 🎯<br> ✅ Collaborations with NFT & Web3 Projects 🖼<br> ✅ Aggressive Meme Marketing on Twitter & Telegram 🔥<br> ✅
+                Listings on CoinGecko & CoinMarketCap 📈<br>
+            </p>
+
+            <h1>Roadmap</h1>
+            <h2>Phase 1 – Launch & Hype</h2>
+            <ul>
+                <li>✅ Token launch on BSC</li>
+                <li>✅ Liquidity locked & contract renounce</li>
+                <li>✅ Community building & Telegram growth</li>
+                <li>✅ Early marketing push (Twitter, influencers)</li>
+                <li>✅ Organic social media growth & shilling</li>
+            </ul>
+            <h2>Phase 2 – Expansion & Adoption</h2>
+            <ul>
+                <li>🔹 DEX Listing/Trending & Strategic Partnerships</li>
+                <li>🔹 Listings on CoinGecko & CoinMarketCapm</li>
+                <li>🔹 Meme contests, giveaways, and viral challenges</li>
+            </ul>
+            <h2>Phase 3 – Moon Mission</h2>
+            <ul>
+                <li>🚀 Hitting our first $1 per token target</li>
+                <li>🚀 $ROBBIE taking over the meme world!</li>
+                <li>🚀 Partnering with high-profile crypto influencers</li>
+                <li>🚀 Major Exchange Listings (CEX)</li>
+            </ul>
+
+            <h1>Community & Socials</h1>
+
+            <p>$ROBBIE thrives on the strength of its community. We believe in rewarding our most dedicated holders and growing through organic engagement, airdrops, giveaways, and social campaign
+            </p>
+            <a href="https://t.me/robieportal" style="color: yellow;">Join the Mellow Revolution! 🚀
+            </a>
+
+
+
+
+
+
+
+        </div>
+
+    </section>
+
+
+
+    <script>
+        async function fetchCryptoPrices() {
+            const coins = 'bitcoin,ethereum,dogecoin,binancecoin,ripple,cardano,solana,polkadot,litecoin,tron';
+            const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${coins}&vs_currencies=usd`);
+            const data = await response.json();
+
+            const prices = [
+                `Bitcoin: $${data.bitcoin.usd}`,
+                `Ethereum: $${data.ethereum.usd}`,
+                `Dogecoin: $${data.dogecoin.usd}`,
+                `Binance Coin: $${data.binancecoin.usd}`,
+                `Ripple: $${data.ripple.usd}`,
+                `Cardano: $${data.cardano.usd}`,
+                `Solana: $${data.solana.usd}`,
+                `Polkadot: $${data.polkadot.usd}`,
+                `Litecoin: $${data.litecoin.usd}`,
+                `Tron: $${data.tron.usd}`
+            ];
+
+            document.getElementById('crypto-prices').textContent = prices.join(' | ');
+        }
+
+        // Fetch prices initially
+        fetchCryptoPrices();
+
+        // Update prices every 60 seconds
+        setInterval(fetchCryptoPrices, 60000);
+    </script>
+
+
+
+
+
+
+
+    <footer>
+        <div class="content-box">
+            <p>&copy; 2025 ROBBIE. All Rights Reserved.</p>
+            <a href="https://t.me/robieportal">Telegram</a>
+            <a href="https://x.com/">Twitter</a>
+        </div>
+    </footer>
+</body>
+
+</html>
